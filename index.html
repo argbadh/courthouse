@@ -112,25 +112,23 @@ input[type="date"]::-webkit-clear-button {
     <label>Don’t fill this out: <input name="bot-field"></label>
   </p>
 
-  <div class="row">
-    <div><label for="name">Your name</label><input id="name" name="name" required></div>
-    <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+<div class="row">
+  <div style="position: relative; width:100%;">
+    <label for="date">Event date</label>
+    <input id="date" name="date" type="date" required 
+           style="width:100%; padding-right:40px; cursor:pointer;"
+           onclick="this.showPicker && this.showPicker()">
+
+    <span style="
+      position:absolute;
+      right:12px;
+      top:50%;
+      transform: translateY(-30%);
+      pointer-events:none;
+      font-size:18px;
+      color:#e2c264;
+    ">📅</span>
   </div>
-
-<div style="position: relative;">
-  <label for="date">Event date</label>
-  <input id="date" name="date" type="date" required 
-         style="width:100%; padding-right:40px; cursor:pointer;"
-         onclick="this.showPicker && this.showPicker()">
-
-  <span style="
-    position:absolute;
-    right:10px;
-    top:38px;
-    pointer-events:none;
-    font-size:18px;
-    color:#e2c264;
-  ">📅</span>
 </div>
 
   <div>

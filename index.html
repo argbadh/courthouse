@@ -113,7 +113,7 @@ input[type="date"]::-webkit-clear-button {
   </p>
 
 <div class="row">
-  <div style="position: relative; width:100%;">
+  <div style="position: relative;">
     <label for="date">Event date</label>
     <input id="date" name="date" type="date" required 
            style="width:100%; padding-right:40px; cursor:pointer;"
@@ -129,8 +129,10 @@ input[type="date"]::-webkit-clear-button {
       color:#e2c264;
     ">📅</span>
   </div>
-</div>
 
+  <!-- empty column to keep layout -->
+  <div></div>
+</div>
   <div>
     <label for="message">Message</label>
     <textarea id="message" name="message" rows="5"></textarea>

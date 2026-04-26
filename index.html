@@ -134,50 +134,57 @@ input[type="date"]::-webkit-clear-button {
           </div>
           <form class="booking" id="booking-form" method="POST" action="https://formspree.io/f/mqegzegl">
 
-  <!-- spam protection -->
+<!-- spam protection -->
 <div class="row">
-  <div><label for="name">Your name</label><input id="name" name="name" required></div>
-  <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
   <div>
-  <label for="phone">Phone number</label>
-  <input id="phone" name="phone" type="tel" placeholder="07XXXXXXXXX" required>
+    <label for="name">Your name</label>
+    <input id="name" name="name" required>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+  </div>
+
+  <div>
+    <label for="phone">Phone number</label>
+    <input id="phone" name="phone" type="tel" placeholder="07XXXXXXXXX" required>
+  </div>
 </div>
-</div>
+
 <div class="row">
+  <div>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5"></textarea>
+  </div>
+
   <div style="position: relative;">
     <label for="date">Event date</label>
     <input id="date" name="date" type="date" required 
            style="width:100%; padding-right:40px; cursor:pointer;"
            onclick="this.showPicker && this.showPicker()">
 
-<span style="
-  position:absolute;
-  right:12px;
-  top:30px;
-  pointer-events:none;
-  font-size:18px;
-  color:#e2c264;
-">📅</span>
+    <span style="
+      position:absolute;
+      right:12px;
+      top:30px;
+      pointer-events:none;
+      font-size:18px;
+      color:#e2c264;
+    ">📅</span>
   </div>
-
-  <!-- empty column to keep layout -->
-  <div></div>
 </div>
-  <div>
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5"></textarea>
-  </div>
-  <div class="row">
-    <button class="btn" id="btn-send" type="submit">Send enquiry</button>
-  </div>
 
-  <p id="book-status" class="note"></p>
+<div class="row">
+  <button class="btn" id="btn-send" type="submit">Send enquiry</button>
+</div>
+
+<p id="book-status" class="note"></p>
 </form>
 
 <div id="form-success" style="display:none; margin-top:20px; padding:15px; background:#1a1a1a; border:1px solid #e2c264; color:#e2c264; border-radius:8px;">
   Thanks — we’ve got your enquiry and will email you back shortly.
 </div>
-        </div>
 
         <div class="card" id="contact">
           <h2>Contact & Opening Hours</h2>

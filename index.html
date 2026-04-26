@@ -139,8 +139,15 @@ input[type="date"]::-webkit-clear-button {
   <div><label for="name">Your name</label><input id="name" name="name" required></div>
   <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
   <div>
-  <label for="phone">Phone number</label>
-  <input id="phone" name="phone" type="tel" placeholder="07XXXXXXXXX" required>
+ <label for="phone">Phone number</label>
+<input 
+  id="phone" 
+  name="phone" 
+  type="tel" 
+  placeholder="07XXXXXXXXX" 
+  required 
+  pattern="[0-9]{11}" 
+  title="Please enter exactly 11 digits">
 </div>
 </div>
 <div class="row">

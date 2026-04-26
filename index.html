@@ -52,25 +52,6 @@ input[type="date"]::-webkit-clear-button {
   height: 20px;
   cursor: pointer;
 }
-.row.single {
-  display: block;
-}
-
-textarea {
-  width: 100%;
-  min-height: 160px;
-}
-#fc .two-col {
-  display: grid !important;
-  grid-template-columns: 2fr 1fr !important;
-  gap: 24px;
-  align-items: start;
-}
-
-#fc .two-col > div {
-  width: 100%;
-  min-width: 0;
-}
 </style>
 <style>form.enquiry-form,.enquiry-box{width:70%;margin:0 auto;max-width:600px;background:var(--card,#101113);border-radius:16px;padding:1.25rem 1rem;box-shadow:0 10px 25px rgba(0,0,0,0.35);}form.enquiry-form input,form.enquiry-form textarea{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#1b1b1d;padding:8px 10px;color:#fff;font-size:15px;}form.enquiry-form button,.btn-enquiry{display:inline-block;width:100%;max-width:240px;margin:0 auto;background:var(--gold,#e2c264);color:#000;font-weight:700;border:0;border-radius:999px;padding:8px 14px;font-size:15px;cursor:pointer;transition:filter .15s ease,transform .02s ease;}form.enquiry-form button:hover,.btn-enquiry:hover{filter:brightness(1.05);}form.enquiry-form button:active,.btn-enquiry:active{transform:translateY(1px);}</style>
 <style>form.enquiry-form,.enquiry-box{width:50%;margin:0 auto;max-width:500px;background:var(--card,#101113);border-radius:16px;padding:1.2rem 1rem;box-shadow:0 10px 25px rgba(0,0,0,0.35);}form.enquiry-form input,form.enquiry-form textarea{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#1b1b1d;padding:6px 8px;color:#fff;font-size:15px;}form.enquiry-form button,.btn-enquiry{display:inline-block;width:auto;padding:8px 16px;background:var(--gold,#e2c264);color:#000;font-weight:700;border:0;border-radius:999px;font-size:15px;cursor:pointer;transition:filter .15s ease,transform .02s ease;}form.enquiry-form button:hover,.btn-enquiry:hover{filter:brightness(1.05);}form.enquiry-form button:active,.btn-enquiry:active{transform:translateY(1px);}</style>
@@ -141,7 +122,7 @@ textarea {
     </section>
 
     <section id="fc" class="band">
-<div class="two-col" style="display:grid; grid-template-columns:2fr 1fr; gap:24px; align-items:start;">
+      <div class="fc-grid">
         <div class="card" id="function">
           <h2>Function Room</h2>
           <p>Classic décor, daylight and a small stage — perfect for 40–120 guests. Good for birthdays, wakes, reunions and club nights. Catering and music can be provided as required.</p>
@@ -153,81 +134,67 @@ textarea {
           </div>
           <form class="booking" id="booking-form" method="POST" action="https://formspree.io/f/mqegzegl">
 
-<!-- spam protection -->
+  <!-- spam protection -->
 <div class="row">
+  <div><label for="name">Your name</label><input id="name" name="name" required></div>
+  <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
   <div>
-    <label for="name">Your name</label>
-    <input id="name" name="name" required>
-  </div>
-
-  <div>
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" required>
-  </div>
-
-  <div>
-    <label for="phone">Phone number</label>
-    <input id="phone" name="phone" type="tel" placeholder="07XXXXXXXXX" required>
-  </div>
-
+  <label for="phone">Phone number</label>
+  <input id="phone" name="phone" type="tel" placeholder="07XXXXXXXXX" required>
+</div>
+</div>
+<div class="row">
   <div style="position: relative;">
     <label for="date">Event date</label>
     <input id="date" name="date" type="date" required 
            style="width:100%; padding-right:40px; cursor:pointer;"
            onclick="this.showPicker && this.showPicker()">
 
-    <span style="
-      position:absolute;
-      right:12px;
-      top:30px;
-      pointer-events:none;
-      font-size:18px;
-      color:#e2c264;
-    ">📅</span>
+<span style="
+  position:absolute;
+  right:12px;
+  top:30px;
+  pointer-events:none;
+  font-size:18px;
+  color:#e2c264;
+">📅</span>
   </div>
-</div>
 
-<div class="row single">
+  <!-- empty column to keep layout -->
+  <div></div>
+</div>
   <div>
     <label for="message">Message</label>
-    <textarea id="message" name="message" rows="8"></textarea>
+    <textarea id="message" name="message" rows="5"></textarea>
   </div>
-</div>
+  <div class="row">
+    <button class="btn" id="btn-send" type="submit">Send enquiry</button>
+  </div>
 
-<div class="row">
-  <button class="btn" id="btn-send" type="submit">Send enquiry</button>
-</div>
-
-<p id="book-status" class="note"></p>
+  <p id="book-status" class="note"></p>
 </form>
 
 <div id="form-success" style="display:none; margin-top:20px; padding:15px; background:#1a1a1a; border:1px solid #e2c264; color:#e2c264; border-radius:8px;">
   Thanks — we’ve got your enquiry and will email you back shortly.
 </div>
+        </div>
 
-<div class="card" id="contact">
-  <h2>Contact & Opening Hours</h2>
+        <div class="card" id="contact">
+          <h2>Contact & Opening Hours</h2>
 
-  <p><strong>Address</strong><br>30 New Street, Dudley, DY1 1LP</p>
-
-  <p><strong>Email</strong><br>
-    <a href="mailto:thecourthousedudley@gmail.com">
-      thecourthousedudley@gmail.com
-    </a>
-  </p>
-
-  <ul class="hours">
-    <li><span>Mon – Thu</span><span>12:00 – 23:00</span></li>
-    <li><span>Fri – Sat</span><span>12:00 – 00:00</span></li>
-    <li><span>Sun</span><span>12:00 – 23:00</span></li>
-  </ul>
-</div>
+          <p><strong>Address</strong><br>30 New Street, Dudley, DY1 1LP</p>
+         <p><strong>Email</strong><br><a href="mailto:thecourthousedudley@gmail.com">thecourthousedudley@gmail.com</a></p>
+          <ul class="hours">
+            <li><span>Mon – Thu</span><span>12:00 – 23:00</span></li>
+            <li><span>Fri – Sat</span><span>12:00 – 00:00</span></li>
+            <li><span>Sun</span><span>12:00 – 23:00</span></li>
+          </ul>
           <div class="social">
             <a href="https://www.facebook.com/thecourthousedudley" target="_blank" aria-label="Facebook" style="margin-right:12px;"><i class="fab fa-facebook-square" style="font-size:32px; color:#e2c264;"></i></a>
             <a href="https://www.instagram.com/thecourthousedudley" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" style="font-size:32px; color:#e2c264;"></i></a>
           </div>
         </div>
-        </div>
+      </div>
     </section>
   </main>
 
